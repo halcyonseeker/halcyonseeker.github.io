@@ -1,0 +1,26 @@
+/*External stylsheet for my website*/
+
+body {
+    background-color: #212121;
+    font-family: "monospace", "serif";
+    color: #f7f7f7;
+}
+
+#container {
+    margin: auto;
+    width: 1200px;
+}
+
+#content {
+    border: 2px solid #f7f7f7;
+    padding: 15px;
+    width: 70%
+}
+
+#sidebar {
+    border: 2px solid #f7f7f7;
+    padding: 1px;
+    float: right;
+    width: 25%;
+    overflow-x: visible;
+}
