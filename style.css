@@ -6,6 +6,18 @@ body {
     color: #f7f7f7;
 }
 
+.bronzehead {
+    color: #cd7f32;
+}
+
+h3 {
+    color: #cd7f32;
+}
+
+a {
+    color: #6495ed;
+}
+
 #container {
     margin: auto;
     width: 1200px;
