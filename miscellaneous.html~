@@ -10,13 +10,16 @@
   </head>
   <body>
     <div id = "container">
-      <h1>Valentin's Home in the Interwebs</h1>
+      <h1>Valentin's Homepage</h1>
       <h2>halcyonseeker.github.io</h2>
       <div id = "sidebar">
 	<ul>
 	  <h3>Directory</h3>
-	  <li><a href = "https://halcyonseeker.github.io/contact.html">Contact Me</a></li>  
-	  <li><a href = "https://halcyonseeker.github.io/miscellaneous.html">Miscellaneous</a></li>
+	  <li>Contact Me</li>  
+	  <li>Miscelaneous</li>
+	  <ul>
+	    <li><a href = "https://halcyonseeker.github.io/ES.html">Experimental Science</a></li>
+	  </ul>
 	  <li><a target = "_blank" href = "https://www.github.com/halcyonseeker">GitHub</a></li>
 	</ul>
       </div>
