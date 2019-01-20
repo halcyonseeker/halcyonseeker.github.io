@@ -23,6 +23,11 @@ a {
     width: 1200px;
 }
 
+#home-image {
+    float: left;
+    padding-right: 10px;
+}
+
 #content {
     border: 2px solid #f7f7f7;
     padding: 15px;
