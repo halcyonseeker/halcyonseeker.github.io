@@ -1,4 +1,4 @@
-/*Stylesheet for most of my site*/
+/*External stylsheet for my home page*/
 
 body {
     background-color: #212121;
@@ -32,4 +32,12 @@ a {
     border: 2px solid #f7f7f7;
     padding: 15px;
     width: 70%
+}
+
+#sidebar {
+    border: 2px solid #f7f7f7;
+    padding: 1px;
+    float: right;
+    width: 25%;
+    overflow-x: visible;
 }
