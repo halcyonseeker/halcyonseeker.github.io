@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Miscellaneous</title>
+    <link rel = "stylesheet"
+	  type = "text/css"
+	  href = "style.css"
+	  />
+  </head>
+  <body>
+    <div id = "container">
+      <div id = "home-image">
+	<img src = "https://halcyonseeker.github.io/media/mozilla-house-emoji.svg" height="100px">
+      </div>
+      <h1>Domus Mea in Rētī Omnium Gentium</h1>
+      <h2><a href = "https://halcyonseeker.github.io">halcyonseeker.github.io</a></h2>
+      <div id = "content">
+	<h2 class = "bronzehead" >Miscellaneous</h2>
+	<ol>
+	  <li><a href = "https://halcyonseeker.github.io/miscellaneous/poorDog.html">I was bored; Hail Satan</a></li>
+	  <li>This web page was a project I did for my Experimental Science class,
+	  it is not as rigorously scientific as I or my teacher would have liked and the css styling is a little much.
+	  Even so, I figured that my shiny new website could do with a bit of content.<br>
+	  <a href = "https://halcyonseeker.github.io/miscellaneous/ES.html">link</a></li>
+	</ol>
+      </div>
+    </div>
+  </body>
+</html>

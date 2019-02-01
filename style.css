@@ -1,8 +1,8 @@
-/*Stylesheet for most of my site*/
+/*Stylesheet for most of my site except the home page and a few miscellaneous/ pages*/
 
 body {
     background-color: #212121;
-    font-family: "monospace", "serif";
+    font-family: "time", "serif";
     color: #f7f7f7;
 }
 
