@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Tetris</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+	  background-color: #212121;
+	  font-family: "time", "serif";
+	  color: #f0f0f0;
+	  text-align: center;
+	  margin: auto;
+	  float: center;
+	  padding-left: 32%;
+	  padding-right: 32%;
+      }
+      
+      #score {
+	  font-size: 20;
+	  font-weight: bold;
+      }
+      #tetris {
+          display: block;
+          margin: auto;
+	  background-color: #212121;
+	  border: 5px solid #f0f0f0;
+	  float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>A Tribute to Alexey Pajitnov</h1>
+    <h2>Use arrow keys to play.</h2>
+    <canvas id="tetris" width="200" height="400"></canvas>
+    <h3>Score</h3>
+    <div id="score">0</div>
+    <script src="tetrominoes.js"></script>
+    <script src="tetris.js"></script>
+  </body>
+</html>

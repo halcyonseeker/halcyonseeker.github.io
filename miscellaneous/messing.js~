@@ -1,7 +1,0 @@
-//alert("Flashing Lights Ahead");
-var canvas = document.getElementById("myCanvas");
-var ctx = ccanvas.getContext("2d");
-ctx.moveTo(0, 0);
-ctx.lineTo(200, 100);
-ctx.stroke;
-//ctx.ellipse(123, 324, 34, 345);
