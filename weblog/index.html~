@@ -5,7 +5,7 @@
     <title>Web-Log</title>
     <link rel = "stylesheet"
 	  type = "text/css"
-	  href = "style.css"
+	  href = "../style.css"
 	  />
   </head>
   <body>
@@ -13,15 +13,14 @@
      <!-- <h2><a href = "https://halcyonseeker.github.io">halcyonseeker.github.io</a></h2>-->
       <h2 class = "bronzehead" >Web Log</h2>
       <div id = "content">
-	<h3>February 2019</h3>
+	<h3>March 2019</h3>
 	<ol>
-	  <li><p>I don't have anything here yet. Perhaps the mystery link below will appeal to you</p>
-	  <p><a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">Mystery Link</a></p></li>
+		<li><a href="https://halcyonseeker.github.io/miscellaneous/breakthrough.html">A review of Breakthrough by Jack Andraka</a></li>
 	</ol>
 	<hr>
 	<h4><a href = "https://halcyonseeker.github.io" >home</a></h4>
 	<p>vesperous at protonmail dot com</p>
-
+<!--	<?php include 'footer.php';?>-->
       </div>
     </div>
   </body>

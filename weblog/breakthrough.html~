@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breakthrough Book Review</title>
+    <link rel = "stylesheet"
+	  type = "text/css"
+	  href = "../style.css"
+	  />
+  </head>
+  <body>
+    <div id = "container">
+      <h2 class = "bronzehead">Book Review: Breakthrough by Jack Andraka</h2>
+      <div id = "content">
+	<h3>The Book</h3>
+	<p>
+Breakthrough follows the life of Jack Andraka from his early childhood,
+detailing the pressures and events that led him to invent an early
+detection test for pancreatic cancer. Overall this book is extremely
+accessible, it's written very well with a cohesive and easy to follow
+storyline. The author explains the scientific concepts in plain
+English, allowing readers who are not well versed in science to follow
+along with minimal difficulty. For me, the highlight of the story was
+the explanation of the scientific process that led Jack to make his
+discovery. As someone who is quite poorly versed in the fields of
+biology and medicine, the accessible writing style really helped. 
+
+</p>
+	<h3>The Science</h3>
+	<p>In order to detect an illness you need to be able to detect its
+byproducts. If you do not know its byproducts, you will not be able to
+detect it. Using an article from the open-access Public Library of
+Science, Jack trawled through a database of 8,000 proteins found in
+various bodily fluids of Pancreatic Cancer patients. He examined each
+protein through a set of criteria:
+	</p>
+	<ul>
+	  <li>Up-regulated or down-regulated: basically, whether or not the amount
+of proteins in the blood increase or decrease with disease. Because
+there would be more of them, it would be easier to detect
+up-regulated proteins.
+	  </li>
+	  <li>If the protein was sensitive to diseases other than Pancreatic
+Cancer, it would not be a reliable indicator. Many of the proteins
+Jack examined were poorly documented, making research in this area
+quite difficult. 
+</li>
+	</ul>
+	<p>After a few months he was able to narrow down to a set of 50 proteins
+that either met the above criteria, or were insufficiently
+researched. He then ran each of those through another set of criteria,
+including what bodily fluids they are found in. Because one of the
+original goals of Jack's research was to find a way to detect
+pancreatic cancer that was both cheap and easy, the biomarker protein
+would need to be found in an easily accessible bodily-fluid like blood
+or urine. About half way through the list of 50, he found a protein
+that fit the bill: <i>mesothelin</i>. 
+</p>
+	<p>Mesothelin is a protein found in very high levels in the blood of
+people in the earliest, and most treatable, stages of pancreatic,
+lung, or ovarian cancer. But finding a suitable protein was only half
+of what had to be done. Jack still had to come up with a cheap, easy
+way of detecting it. After researching various expensive and complex
+detection methods, he came up with a hypothetical solution. 
+</p>
+	<p>Basically, he would combine carbon nanotubes with specific antibodies
+to create a network that only reacts to a specific protein. When the
+mesotheline reacts with the antibodies they would form an
+<i>immunocomplex</i>, basically a massive protein molecule. When this large
+molecule forms, it is large enough to push aside neighboring
+nanotubes, causing the network to become more spread-out. This would
+reduce the number of contacts between the carbon nanotubes, creating
+fewer pathways in which electrons to flow. This would increase the
+electrical resistance of the network, something that can be easily
+measured with an ohmmeter. 
+</p>
+	<p>The final product consisted of a network of carbon nanotubes and
+mesothelin-sensitive antibodies layed over a firm backing. A drop of
+blood would be placed on it and if its electrical resistance
+increased, then the doctors would know that the patient has high
+levels of mesothelin in their blood, indicating the presence of lung,
+ovarian, or pancreatic cancer. 
+</p>
+	<h3>Implications</h3>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+
+	<hr>
+	<a id = "footer1">[1]<br></a>
+	<a id = "footer2">[2]</a>
+	      <hr>
+	      <h4><a href = "https://halcyonseeker.github.io" >home</a></h4>
+	<p>vesperous at protonmail dot com</p>
+<!--	<?php include 'footer.php';?>-->
+      </div>
+    </div>
+  </body>
+</html>
