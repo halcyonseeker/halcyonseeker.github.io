@@ -1,0 +1,19 @@
+body {
+    background-color: #212121;
+    font-family: "time", "serif";
+    color: #f7f7f7;
+    margin: auto;
+    max-width: 800px;
+}
+h1,h2,h3,h4 {
+    color: #cd7f32;
+}
+h2 {
+    text-align: center;
+}
+a {
+    color: #6495ed;
+}
+td {
+    padding-right: 20px;
+}
