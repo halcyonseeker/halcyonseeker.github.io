@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-08 Thu 08:26 -->
+<!-- 2019-08-08 Thu 14:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>US Concentration Camps</title>
+<title>Rip .aax files from Audible with ffmpeg</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -229,65 +229,150 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="up.html"> UP </a>
+ <a accesskey="h" href="../up.html"> UP </a>
  |
- <a accesskey="H" href="index.html"> HOME </a>
+ <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">US Concentration Camps</h1>
+<h1 class="title">Rip .aax files from Audible with ffmpeg</h1>
+<hr>
 <p>
-<a href="https://concentrationcamps.us">concentrationcamps.us</a>
+<b>This tutorial teaches you how to free your audiobooks from Audible's
+DRM.</b>
 </p>
 
 <p>
-So I found this cool website. It contains, amongst other things, a
-full listing of ICE detention facilities where would-be immigrants are
-being extra-judicially detained. 
+<b>My intention is that it be used for personal use, please do not be a
+parasite</b> 
+</p>
+
+
+<div id="outline-container-orga9cb69b" class="outline-2">
+<h2 id="orga9cb69b">The Boring Bit</h2>
+<div class="outline-text-2" id="text-orga9cb69b">
+<p>
+Okay, so this is the first tutorial I've ever written, so please bear
+with me. For many years now I've been an avid listener of audiobooks,
+and Audible has been my main source of content. But as I learned more
+tech, I grew disatisfied with my reliance on an Audible app to listen
+to the audiobooks I PURCHASED. So this tutorial will teach you how to
+convert the audiobooks you bought from Audible and listen to them
+anywhere, anywhen, and anyhow.
+</p>
+</div>
+
+<div id="outline-container-org47e1e07" class="outline-3">
+<h3 id="org47e1e07">Is it illegal?</h3>
+<div class="outline-text-3" id="text-org47e1e07">
+<p>
+I dunno, I'm not a lawyer. Some strangers on the internet (I think
+it was r/Piracy) said that ripping from Audible, like ripping from
+DVDs and CDs is not illegal in the US unless you are selling
+them. I don't know about other countries, and you shouldn't take
+my word for it anyway, if you're <del>a pussy</del> concerned about
+breaking the law, please consult a lawyer. Also, it's not my fault
+if you use this information for something illegal. I'm just a
+messenger. That said, please to not be a parasite on the authors and
+actors who make their livings from writing and recording
+audiobooks.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9e17d65" class="outline-2">
+<h2 id="org9e17d65">How (I Think) It Works</h2>
+<div class="outline-text-2" id="text-org9e17d65">
+<p>
+In order to listen to your audiobook offline you'll need to find
+your so-called "activation-bytes". Each audiobook you purchase from
+Audible contains your imbedded activation-bytes. In order to get
+them, you need to extract a hash from the audiobook and then
+decrypt it. With the activation-bytes in hand you can then proceed
+to decrypt your audiobook into a format that can be played anywhere. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3d15da" class="outline-2">
+<h2 id="orgd3d15da">What You Need</h2>
+<div class="outline-text-2" id="text-orgd3d15da">
+<ul class="org-ul">
+<li>A basic grasp of the Linux/Unix command line (I dunno if this works
+on Windows). You need to know how to enter a directory, run an
+executable file, and stuff.</li>
+<li><a href="https://www.ffmpeg.org/">ffmpeg</a>, a wonderful command line utility for manipulation audio and
+video streams.</li>
+<li><a href="https://github.com/inAudible-NG/tables">inAudible-NG's Rainbow Tables Repository on Github</a>. Rainbow tables
+are a really cool tool for decrypting data. Basically, when
+brute-forcing encrypted information, there is (as with many other
+things in computing) a trade-off between memory and cpu
+usage. Rainbow Tables contain pre-computed values, saving
+processing time and resources while brute-forcing encrypted data.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9de8072" class="outline-2">
+<h2 id="org9de8072">How To Do It</h2>
+<div class="outline-text-2" id="text-org9de8072">
+<p>
+If you're lazy like me and just want to listen to your audiobooks
+how you like, then use <a href="https://www.github.com/halcyonseeker/port/scripts/aax.sh">this script</a> I wrote. If you want to do
+things your own way, follow the description below.
 </p>
 
 <p>
-This is exactly the kind of government overreach that the Second
-Amendment was created to discourage. I'm just putting this out there,
-I neither advise nor condone any violent action against the US
-government. I fear that any kind of violent partisan action could be
-like tinder to the sparks of sectarian violence already present in the
-United States. 
+<b>Enter the directory containing the cloned tables repository and the .aax files</b>
 </p>
 
 <p>
-As a lover of liberty I despise the actions of the US government at
-the Mexican border. As a political moderate, I am afraid to take
-action for fear of being trapped in the middle of a conflict between
-so-called "fascists" and "anti-fascists".
+<code>cd ~/path/to/directory/</code>
 </p>
 
 <p>
-I'll leave you with this famous quote from the Lutheran pastor Martin
-Niemöller:
-</p>
-
-<blockquote>
-<p>
-"First the came for the socialists, and I did not speak out &#x2013; because
-I was not a socialist. 
+<b>Extract the checksum from the .aax file with ffprobe</b>
 </p>
 
 <p>
-Then they came for the trade unionists, and I did not speak out &#x2013;
-because I was not a trade unionist. 
+<code>ffprobe file.aax | grep checksum | awk '{ print $NF }'</code>
 </p>
 
 <p>
-Then they came for the Jews, and I did not speak out &#x2013; because I was
-not a Jew.
+<b>Enter the tables repository</b>
 </p>
 
 <p>
-Then they came for me &#x2013; and there was no one left to speak for me."
+<code>cd tables</code>
 </p>
-</blockquote>
+
+<p>
+<b>Extract the activation bytes from the checksum</b>
+</p>
+
+<p>
+<code>./rcrack . -h CHECKSUM_FROM_FFPROBE</code>
+</p>
+
+<p>
+<b>Convert the .aax file to a .flac with ffmpeg</b>
+</p>
+
+<p>
+<code>ffmpeg -activation_bytes BYTE_FROM_TABLES -i file.aax file.flac</code>
+</p>
+
+<p>
+And now you should have your audiobook as a DRM free flac file that
+you can listen to almost wherever you want. Because flac is an
+inherently free codec, some older proprietary players like the iPod
+don't support it. This problem can be solved by flashing the RockBox
+firmware, or converting the .aax file to a .mp3.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-08-08 Thu 08:26</p>
+<p class="date">Date: 2019-08-08</p>
+<p class="date">Created: 2019-08-08 Thu 14:38</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
