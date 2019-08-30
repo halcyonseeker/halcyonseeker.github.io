@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-08 Thu 14:38 -->
+<!-- 2019-08-30 Fri 08:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rip .aax files from Audible with ffmpeg</title>
@@ -253,7 +253,7 @@ parasite</b>
 Okay, so this is the first tutorial I've ever written, so please bear
 with me. For many years now I've been an avid listener of audiobooks,
 and Audible has been my main source of content. But as I learned more
-tech, I grew disatisfied with my reliance on an Audible app to listen
+tech, I grew dissatisfied with my reliance on an Audible app to listen
 to the audiobooks I PURCHASED. So this tutorial will teach you how to
 convert the audiobooks you bought from Audible and listen to them
 anywhere, anywhen, and anyhow.
@@ -272,7 +272,7 @@ my word for it anyway, if you're <del>a pussy</del> concerned about
 breaking the law, please consult a lawyer. Also, it's not my fault
 if you use this information for something illegal. I'm just a
 messenger. That said, please to not be a parasite on the authors and
-actors who make their livings from writing and recording
+narrators who make their livings from writing and recording
 audiobooks.
 </p>
 </div>
@@ -285,7 +285,7 @@ audiobooks.
 <p>
 In order to listen to your audiobook offline you'll need to find
 your so-called "activation-bytes". Each audiobook you purchase from
-Audible contains your imbedded activation-bytes. In order to get
+Audible contains your embedded activation-bytes. In order to get
 them, you need to extract a hash from the audiobook and then
 decrypt it. With the activation-bytes in hand you can then proceed
 to decrypt your audiobook into a format that can be played anywhere. 
@@ -315,50 +315,52 @@ processing time and resources while brute-forcing encrypted data.</li>
 <h2 id="org9de8072">How To Do It</h2>
 <div class="outline-text-2" id="text-org9de8072">
 <p>
-If you're lazy like me and just want to listen to your audiobooks
-how you like, then use <a href="https://www.github.com/halcyonseeker/port/scripts/aax.sh">this script</a> I wrote. If you want to do
-things your own way, follow the description below.
+If you have your activation bytes and you're lazy like me and just
+want to listen to your audiobooks how you like, then use [[][this
+script]]. If you want to do things your own way, follow the
+description 
+below.  
 </p>
 
 <p>
 <b>Enter the directory containing the cloned tables repository and the .aax files</b>
 </p>
 
-<p>
-<code>cd ~/path/to/directory/</code>
-</p>
+<pre class="example">
+cd ~/path/to/directory/
+</pre>
 
 <p>
 <b>Extract the checksum from the .aax file with ffprobe</b>
 </p>
 
-<p>
-<code>ffprobe file.aax | grep checksum | awk '{ print $NF }'</code>
-</p>
+<pre class="example">
+ffprobe file.aax | grep checksum | awk '{ print $NF }'
+</pre>
 
 <p>
 <b>Enter the tables repository</b>
 </p>
 
-<p>
-<code>cd tables</code>
-</p>
+<pre class="example">
+cd tables
+</pre>
 
 <p>
 <b>Extract the activation bytes from the checksum</b>
 </p>
 
-<p>
-<code>./rcrack . -h CHECKSUM_FROM_FFPROBE</code>
-</p>
+<pre class="example">
+./rcrack . -h CHECKSUM_FROM_FFPROBE
+</pre>
 
 <p>
 <b>Convert the .aax file to a .flac with ffmpeg</b>
 </p>
 
-<p>
-<code>ffmpeg -activation_bytes BYTE_FROM_TABLES -i file.aax file.flac</code>
-</p>
+<pre class="example">
+ffmpeg -activation_bytes BYTE_FROM_TABLES -i file.aax file.flac
+</pre>
 
 <p>
 And now you should have your audiobook as a DRM free flac file that
@@ -367,12 +369,33 @@ inherently free codec, some older proprietary players like the iPod
 don't support it. This problem can be solved by flashing the RockBox
 firmware, or converting the .aax file to a .mp3.
 </p>
+
+<p>
+If you've already found your activation bytes and you want an easy
+and flexible way of converting the file, you can use <a href="https://github.com/KrumpetPirate/AAXtoMP3">KrumpetPirate's
+AAXtoMP3 script</a>.  
+</p>
+
+<p>
+Personally, I use the following script to automate the process of
+converting the aax file. For extra convenience I recommend sticking
+it somewhere in you <code>$PATH</code> variable 
+</p>
+<pre class="example">
+#!/bin/bash
+FLACNAME=$(echo $1 | sed "s/aax/flac/")
+BYTES=my_activation_bytes
+ffmpeg -activation_bytes $BYTES -i $1 $FLACNAME
+echo "$FLACNAME created"
+</pre>
+
+<hr>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2019-08-08</p>
-<p class="date">Created: 2019-08-08 Thu 14:38</p>
+<p class="date">Created: 2019-08-30 Fri 08:57</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
