@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-30 Fri 08:57 -->
+<!-- 2019-09-16 Mon 10:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Android Replicant on a Galaxy Nexus</title>
+<title>Locations of Interest</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -229,222 +229,34 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="../up.html"> UP </a>
+ <a accesskey="h" href="up.html"> UP </a>
  |
- <a accesskey="H" href="../index.html"> HOME </a>
+ <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">Android Replicant on a Galaxy Nexus</h1>
+<h1 class="title">Locations of Interest</h1>
 <hr>
-
-<div id="outline-container-org12d42b0" class="outline-2">
-<h2 id="org12d42b0">My Troubled History with Mobile Phones</h2>
-<div class="outline-text-2" id="text-org12d42b0">
 <p>
-The first phone that I owned was a hand-me-down iPhone 4s. It was
-small, it was convenient, it was not what I wanted. Though I did
-not like it when I had it, once I got rid of it I came to
-appreciate the wonderful convenience of its small size. I still
-have nice memories of sitting in the US Embassy in Addis Ababa,
-reading <a href="http://www.projectrho.com/public_html/rocket/">Project Rho</a> and eating pizza.  
+A selection of the (mostly lesser known) places I've visited
+throughout my life that others might find interesting. They're sorted
+in no particular order. 
 </p>
 
+<div id="outline-container-org5e7429d" class="outline-2">
+<h2 id="org5e7429d">Yoder, Kansas</h2>
+<div class="outline-text-2" id="text-org5e7429d">
 <p>
-Back before I got into tech and realized that modern technology is
-Literally Hitler<sup>tm</sup>, I was much like the average young person. Not
-only did I like the latest, the shiniest, and the slimmest new
-wondertoys; I even considered myself &#x2013; like many ignorant fools my
-age &#x2013; tech savvy. Anyhow, I convinced my parents to buy me a
-Samsung Galaxy S7, yes, the one without the remvable battery. 
+Yoder is an Amish/Menonite town about a half hour ourside
+Witchita. It has an excelent restaurant and meat store. 
 </p>
 
-<p>
-Fast forward a few years. I am now a paranoid FOSS enthusiast with
-a few metaphorical hairs on my chin. I wanted a way out of absolute
-fucking shit-show that are smartphones. First, I tried to install
-LineageOS on my S7. I chickened out when I found that I had the
-exact model that was <i>not compatible</i> with TWRP Recovery. I then
-bought a Nokia 3310 (the original, not the shitty remake); I loved
-it but couldn't connect it to T-Mobile's network. By this point,
-neither the Purism Librem 5 nor the Pine Phone had been released,
-and honestly I did not want to haul around my S7 any longer. It had
-<i>Facebook</i> pre-installed, for fuck's sake. 
-</p>
-
-<p>
-So I searched for alternatives. Ubuntu Phone looked all right, but
-software support is pretty shit. Linux on the Sony Xperia seemed
-okay, but it required a proprietary UI because reasons and it
-didn't have a removable battery. Removable battteries are
-essential, especially when hardware kill switches are not
-available. Then one day I was cruzing around <a href="https://fsf.org">fsf.org</a> looking for
-cool stuff, and I happened upon Andorid Replicant, a distribution
-of Andorid (aka "ROM") built to run with as little proprietary
-firmware as possible. 
-</p>
-</div>
-</div>
-
-<div id="outline-container-org3a98fd7" class="outline-2">
-<h2 id="org3a98fd7">Android Replicant</h2>
-<div class="outline-text-2" id="text-org3a98fd7">
-<p>
-For those not familier with Android, the kernel and a lot of
-userspace software is open-source, and there is a fairly sizable
-ecosystem of free and open source software available from the
-Fdroid repository. The catch is in the hardware. Most hardware
-requires large proprietary blobs, some of which needs to run on the
-CPU along side the OS, where others can run on external processors
-like the SIM card and the baseband moden (which is usually built
-into the CPU, but whatever). In order to be endorsed by the Free
-Software Foundation, Replicant needs to depend on as little
-proprietary blobs as possible. This makes the hardware selection
-rather limited, with about a dozen supported devices from the early
-2010s. 
-</p>
-
-<p>
-I went with the Google/Samsung Galaxy Nexus i9250 for its compact
-size (though much larger than the iPhone 4s) and a decent deal I
-found on ebay. It was released in 2011 and has 16 gb of storage and
-generally low specs from a modern perspective. For me this is no
-problem as I'll mostly be using it as a dumb phone, glorified
-pager, ssh client, and maybe an audio player. 
-</p>
-</div>
-
-<div id="outline-container-orgb6f6468" class="outline-3">
-<h3 id="orgb6f6468">Installation</h3>
-<div class="outline-text-3" id="text-orgb6f6468">
-<p>
-<b>INSTRUCTIONS ARE SPECIFICALLY FOR THE GALAXY NEXUS i9250, THEY
-WILL NOT WORK FOR OTHER DEVICESs</b>  
-</p>
-
-<p>
-For this guide I am assuming the your are using and reasonably
-familiar with GNU/Linux.
-</p>
-</div>
-
-<div id="outline-container-org1069c6d" class="outline-4">
-<h4 id="org1069c6d">0. How it works</h4>
-</div>
-<div id="outline-container-org6593d7b" class="outline-4">
-<h4 id="org6593d7b">1. Download and Very Recovery and OS Images</h4>
-<div class="outline-text-4" id="text-org6593d7b">
-<p>
-In order to ensure that the files you download were not corupted
-or tampered with, add the release key to you keychain, as per
-<a href="https://redmine.replicant.us/projects/replicant/wiki/ReleaseKey">this guide</a>. I'm using Replicant 6.0, so I want the key with ID
-<code>5816A24C10757FC4</code>.
-</p>
-<pre class="example">
-# Import the key
-gpg --recv-keys 5816A24C10757FC4
-</pre>
-
-<p>
-Next, download the apropriate recovery image, the OS image, their
-checksum file, and signature files from <a href="https://redmine.replicant.us/projects/replicant/wiki/Images">here</a>. For me they are:
-</p>
-<ul class="org-ul">
-<li><b>replicant-6.0-maguro.zip</b> &#x2013; The OS.</li>
-<li><b>replicant-6.0-maguro.zip.asc</b> &#x2013; The OS signature file.</li>
-<li><b>recovery-maguro.img</b> &#x2013; The recovery.</li>
-<li><b>recovery-maguro.img.asc</b> &#x2013; The recovery signature file.</li>
-<li><b>maguro.sha256</b> &#x2013; The checksum file for the OS and recovery.</li>
-</ul>
-
-<p>
-Verify the recovery and OS signature files. If you do not see
-<code>good signature</code> <b>DO NOT PROCEDE</b>, the files have been tampered
-with. 
-</p>
-<pre class="example">
-# Recovery
-gpg --verify recovery-maguro.img.asc
-gpg --verify replicant-6.0-maguro.zip.asc
-</pre>
-
-<p>
-You next should verify the checksums of the OS and recovery files
-to ensure that they have not been corrupted in transit. In order
-to avoid tedious manual comparison between the output of
-<code>sha256sum</code> and the content of <code>maguro.sha256</code>, I recommend
-using the script below.
-</p>
-<pre class="example">
-
-</pre>
-
-<p>
-If all went well, you're all set to begin flashing the recovery!
-</p>
-</div>
-</div>
-
-<div id="outline-container-org4b609fd" class="outline-4">
-<h4 id="org4b609fd">2. Flash Recovery Image</h4>
-<div class="outline-text-4" id="text-org4b609fd">
-<p>
-In order to procede with flashing the recovery image, you'll need
-to install <code>heimdall</code>, in Arch GNU/Linux it is available in the
-<a href="https://aur.archlinux.org/packages/heimdall/">AUR</a>. 
-</p>
-
-
-<pre class="example">
-sudo heimdall flash --boot /path/to/recovery-maguro.img --recovery /path/to/recovery-maguro.img
-</pre>
-
-<pre class="example">
-...
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgc52359a" class="outline-4">
-<h4 id="orgc52359a">3. Flash OS</h4>
-</div>
-</div>
-<div id="outline-container-orga0d13c7" class="outline-3">
-<h3 id="orga0d13c7">Impressions</h3>
-</div>
-</div>
-<div id="outline-container-orgdfd8adb" class="outline-2">
-<h2 id="orgdfd8adb">A Usable Setup</h2>
-</div>
-<div id="outline-container-org6d16096" class="outline-2">
-<h2 id="org6d16096">Conclusion</h2>
-<div class="outline-text-2" id="text-org6d16096">
-</div>
-<div id="outline-container-org4853876" class="outline-3">
-<h3 id="org4853876">The Good</h3>
-</div>
-<div id="outline-container-orgbce4fd4" class="outline-3">
-<h3 id="orgbce4fd4">The Bad</h3>
-</div>
-<div id="outline-container-org09c6087" class="outline-3">
-<h3 id="org09c6087">The Ugly</h3>
-</div>
-</div>
-<div id="outline-container-orgae4f2bd" class="outline-2">
-<h2 id="orgae4f2bd">Resources</h2>
-<div class="outline-text-2" id="text-orgae4f2bd">
-<p>
-<a href="https://redmine.replicant.us/projects/replicant/wiki/GalaxyNexusI9250">https://redmine.replicant.us/projects/replicant/wiki/GalaxyNexusI9250</a>
-<a href="https://redmine.replicant.us/projects/replicant/wiki/RecoveryInstallationWithHeimdall">https://redmine.replicant.us/projects/replicant/wiki/RecoveryInstallationWithHeimdall</a>
-<a href="https://redmine.replicant.us/projects/replicant/wiki/ReleaseKey#Retrieving-the-Replicant-release-key">https://redmine.replicant.us/projects/replicant/wiki/ReleaseKey#Retrieving-the-Replicant-release-key</a>
-<a href="https://redmine.replicant.us/projects/replicant/wiki/Images">https://redmine.replicant.us/projects/replicant/wiki/Images</a>
-</p>
-
+<br>
 <hr>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-08-29</p>
-<p class="date">Created: 2019-08-30 Fri 08:57</p>
+<p class="date">Date: 2019-09-16</p>
+<p class="date">Created: 2019-09-16 Mon 10:33</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

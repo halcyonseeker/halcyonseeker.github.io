@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-30 Fri 10:00 -->
+<!-- 2019-09-16 Mon 10:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rip .aax files from Audible with ffmpeg</title>
+<title>Android Replicant on a Galaxy Nexus: Introduction</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -233,161 +233,88 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">Rip .aax files from Audible with ffmpeg</h1>
+<h1 class="title">Android Replicant on a Galaxy Nexus: Introduction</h1>
 <hr>
+
+<div id="outline-container-org23cd69a" class="outline-2">
+<h2 id="org23cd69a">My Troubled History with Mobile Phones</h2>
+<div class="outline-text-2" id="text-org23cd69a">
 <p>
-<b>This tutorial teaches you how to free your audiobooks from Audible's
-DRM.</b>
+The first phone that I owned was a hand-me-down iPhone 4s. It was
+small, it was convenient, it was not what I wanted. Though I did
+not like it when I had it, once I got rid of it I came to
+appreciate the wonderful convenience of its small size. I still
+have nice memories of sitting in the US Embassy in Addis Ababa,
+reading <a href="http://www.projectrho.com/public_html/rocket/">Project Rho</a> on it and eating pizza.  
 </p>
 
 <p>
-<b>My intention is that it be used for personal use, please do not be a
-parasite</b> 
+Back before I got into tech and realized that modern technology is
+Literally Hitler<sup>tm</sup>, I was much like the average young person. Not
+only did I like the latest, the shiniest, and the slimmest new
+wondertoys; I even considered myself &#x2013; like many ignorant fools my
+age &#x2013; tech savvy. Anyhow, I convinced my parents to buy me a
+Samsung Galaxy S7, yes, the one without the removable battery. 
 </p>
 
-
-<div id="outline-container-orga9cb69b" class="outline-2">
-<h2 id="orga9cb69b">The Boring Bit</h2>
-<div class="outline-text-2" id="text-orga9cb69b">
 <p>
-Okay, so this is the first tutorial I've ever written, so please bear
-with me. For many years now I've been an avid listener of audiobooks,
-and Audible has been my main source of content. But as I learned more
-tech, I grew dissatisfied with my reliance on an Audible app to listen
-to the audiobooks I PURCHASED. So this tutorial will teach you how to
-convert the audiobooks you bought from Audible and listen to them
-anywhere, anywhen, and anyhow.
+Fast forward a few years. I am now a paranoid FOSS enthusiast with
+a few metaphorical hairs on my chin. I wanted a way out of the
+shit-show that are smartphones. First, I tried to install LineageOS
+on my S7. I chickened out when I found that I had the exact model
+that was <i>not compatible</i> with TWRP Recovery. I then bought a Nokia
+3310 (the original, not the shitty remake); I love the way it feels
+in my hand, but couldn't connect it to T-Mobile's network. By this
+point, neither the Purism Librem 5 nor the Pine Phone had been
+released, and honestly I did not want to haul around my S7 any
+longer. It had <i>Facebook</i> pre-installed, for fuck's sake.
 </p>
-</div>
 
-<div id="outline-container-org47e1e07" class="outline-3">
-<h3 id="org47e1e07">Is it illegal?</h3>
-<div class="outline-text-3" id="text-org47e1e07">
 <p>
-I dunno, I'm not a lawyer. Some strangers on the internet (I think
-it was r/Piracy) said that ripping from Audible, like ripping from
-DVDs and CDs is not illegal in the US unless you are selling
-them. I don't know about other countries, and you shouldn't take
-my word for it anyway, if you're <del>a pussy</del> concerned about
-breaking the law, please consult a lawyer. Also, it's not my fault
-if you use this information for something illegal. I'm just a
-messenger. That said, please to not be a parasite on the authors and
-narrators who make their livings from writing and recording
-audiobooks.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org9e17d65" class="outline-2">
-<h2 id="org9e17d65">How (I Think) It Works</h2>
-<div class="outline-text-2" id="text-org9e17d65">
-<p>
-In order to listen to your audiobook offline you'll need to find
-your so-called "activation-bytes". Each audiobook you purchase from
-Audible contains your embedded activation-bytes. In order to get
-them, you need to extract a hash from the audiobook and then
-decrypt it. With the activation-bytes in hand you can then proceed
-to decrypt your audiobook into a format that can be played anywhere. 
+So I searched for alternatives. Ubuntu Phone looked all right, but
+software support is pretty poor. Linux on the Sony Xperia seemed
+okay, but it required a proprietary UI because reasons and it
+didn't have a removable battery. Removable batteries are
+essential, especially when hardware kill switches are not
+available. Then one day I was cruising around <a href="https://fsf.org">fsf.org</a> looking for
+cool stuff, and I happened upon Android Replicant, a distribution
+of Android (aka "ROM") built to run with as little proprietary
+firmware as possible. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd3d15da" class="outline-2">
-<h2 id="orgd3d15da">What You Need</h2>
-<div class="outline-text-2" id="text-orgd3d15da">
-<ul class="org-ul">
-<li>A basic grasp of the Linux/Unix command line (I dunno if this works
-on Windows). You need to know how to enter a directory, run an
-executable file, and stuff.</li>
-<li><a href="https://www.ffmpeg.org/">ffmpeg</a>, a wonderful command line utility for manipulation audio and
-video streams.</li>
-<li><a href="https://github.com/inAudible-NG/tables">inAudible-NG's Rainbow Tables Repository on Github</a>. Rainbow tables
-are a really cool tool for decrypting data. Basically, when
-brute-forcing encrypted information, there is (as with many other
-things in computing) a trade-off between memory and cpu
-usage. Rainbow Tables contain pre-computed values, saving
-processing time and resources while brute-forcing encrypted data.</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9de8072" class="outline-2">
-<h2 id="org9de8072">How To Do It</h2>
-<div class="outline-text-2" id="text-org9de8072">
+<div id="outline-container-org70d290e" class="outline-2">
+<h2 id="org70d290e">Android Replicant</h2>
+<div class="outline-text-2" id="text-org70d290e">
 <p>
-If you have your activation bytes and you're lazy like me and just
-want to listen to your audiobooks how you like, then use [[][this
-script]]. If you want to do things your own way, follow the
-description 
-below.  
+For those not familiar with Android, the kernel and a lot of
+userspace software is open-source, and there is a fairly sizable
+ecosystem of free and open source software available from the
+Fdroid repository. The catch is in the hardware. Most hardware
+requires large proprietary blobs, some of which needs to run on the
+CPU along side the OS, where others can run on external processors
+like the SIM card and the baseband modem (which is usually built
+into the CPU, but whatever). In order to be endorsed by the Free
+Software Foundation, Replicant needs to depend on as few
+proprietary blobs as possible. This makes the hardware selection
+rather limited, with about a dozen supported devices from the early
+2010s. 
 </p>
 
 <p>
-<b>Enter the directory containing the cloned tables repository and the .aax files</b>
-</p>
-
-<pre class="example">
-cd ~/path/to/directory/
-</pre>
-
-<p>
-<b>Extract the checksum from the .aax file with ffprobe</b>
-</p>
-
-<pre class="example">
-ffprobe file.aax | grep checksum | awk '{ print $NF }'
-</pre>
-
-<p>
-<b>Enter the tables repository</b>
-</p>
-
-<pre class="example">
-cd tables
-</pre>
-
-<p>
-<b>Extract the activation bytes from the checksum</b>
-</p>
-
-<pre class="example">
-./rcrack . -h CHECKSUM_FROM_FFPROBE
-</pre>
-
-<p>
-<b>Convert the .aax file to a .flac with ffmpeg</b>
-</p>
-
-<pre class="example">
-ffmpeg -activation_bytes BYTE_FROM_TABLES -i file.aax file.flac
-</pre>
-
-<p>
-And now you should have your audiobook as a DRM free flac file that
-you can listen to almost wherever you want. Because flac is an
-inherently free codec, some older proprietary players like the iPod
-don't support it. This problem can be solved by flashing the RockBox
-firmware, or converting the .aax file to a .mp3.
+I went with the Google/Samsung Galaxy Nexus i9250 for its compact
+size (though much larger than the iPhone 4s) and a decent deal I
+found on eBay. It was released in 2011 and has 16 GB of storage and
+generally low specs from a modern perspective. For me this is no
+problem as I'll mostly be using it as a dumb phone, glorified
+pager, basic PDA, ssh client, and maybe an audio player. 
 </p>
 
 <p>
-If you've already found your activation bytes and you want an easy
-and flexible way of converting the file, you can use <a href="https://github.com/KrumpetPirate/AAXtoMP3">KrumpetPirate's
-AAXtoMP3 script</a>.  
+In the next post in this series I will be going over the process of
+installing Replicant on the i9250. 
 </p>
-
-<p>
-Personally, I use the following script to automate the process of
-converting the aax file. For extra convenience I recommend sticking
-it somewhere in you <code>$PATH</code> variable 
-</p>
-<pre class="example">
-#!/bin/bash
-FLACNAME=$(echo $1 | sed "s/aax/flac/")
-BYTES=my_activation_bytes
-ffmpeg -activation_bytes $BYTES -i $1 $FLACNAME
-echo "$FLACNAME created"
-</pre>
 
 <br>
 <hr>
@@ -395,8 +322,8 @@ echo "$FLACNAME created"
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-08-08</p>
-<p class="date">Created: 2019-08-30 Fri 10:00</p>
+<p class="date">Date: 2019-08-30</p>
+<p class="date">Created: 2019-09-16 Mon 10:11</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
