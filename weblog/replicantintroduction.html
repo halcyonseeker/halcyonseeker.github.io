@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-16 Mon 10:11 -->
+<!-- 2019-09-22 Sun 12:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Android Replicant on a Galaxy Nexus: Introduction</title>
@@ -315,15 +315,71 @@ pager, basic PDA, ssh client, and maybe an audio player.
 In the next post in this series I will be going over the process of
 installing Replicant on the i9250. 
 </p>
+</div>
+</div>
+
+<div id="outline-container-org86edef9" class="outline-2">
+<h2 id="org86edef9">Edit: No Replicant Series</h2>
+<div class="outline-text-2" id="text-org86edef9">
+<p>
+Update: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-22 Sun&gt;</span></span>
+</p>
+
+<p>
+Alright, so I'm not going to continue the Replicant series. I was
+able to succesfully install the recovery and the OS, but try as I
+might I could not get the damn phone to boot. As I write this, it's
+been stuck on the bootsplash for over 24 hours following my fifth
+attempt at installation.
+</p>
+
+<p>
+I've been looking into other freedom-respecting Android distros
+(calling them ROMs is just stupid), and will be giving MicroG, a
+free software focused fork of LineageOS, a try. I'll probably
+create a spinoff of the planned Replicant series focusing on the
+MicroG install.
+</p>
+</div>
+<div id="outline-container-org39cf19b" class="outline-3">
+<h3 id="org39cf19b">Replicant Installation</h3>
+<div class="outline-text-3" id="text-org39cf19b">
+<p>
+Though I was unable to install a working instance of Replicant, I
+figure I'll write down a few of the lessons I learned.
+</p>
+
+<p>
+Over all, the installation instructions on the Replicant project's
+website are pretty good, but one of the biggest hangups I had was
+just how to install the OS once the recovery image is installed. I
+ended up selecting <b>Apply update &gt; Apply from ADB</b> in the recovery
+menu, and sideloading the OS image:
+</p>
+<pre class="example">
+adb sideload /path/to/replicant-6.0-maguro.zip
+</pre>
+
+<p>
+The Android Debug Bridge can be installed on Arch with the
+<code>android-tools</code> package.
+</p>
+
+<p>
+Becuase this was not in the official installation guide (I found
+this solution on the forums), I think that it may be the reason
+that it didn't work. Anyway, I'm finished with Replicant for now.
+</p>
 
 <br>
 <hr>
 </div>
 </div>
 </div>
+</div>
 <div id="postamble" class="status">
 <p class="date">Date: 2019-08-30</p>
-<p class="date">Created: 2019-09-16 Mon 10:11</p>
+<p class="date">Created: 2019-09-22 Sun 12:35</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
