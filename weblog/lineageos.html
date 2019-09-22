@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-30 Fri 16:04 -->
+<!-- 2019-09-22 Sun 15:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Android Replicant on a Galaxy Nexus: Installaton</title>
+<title>MicroG on a Galaxy Nexus</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -233,170 +233,26 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">Android Replicant on a Galaxy Nexus: Installaton</h1>
-<hr>
-<p>
-<b>Instructions are specifically for the Galaxy Nexus i9250, they
-will not work for other devices</b>  
-</p>
-
-<p>
-For this guide I am assuming that you are using and reasonably
-familiar with GNU/Linux. 
-</p>
-
-<div id="outline-container-orgca74df2" class="outline-2">
-<h2 id="orgca74df2">Download and Verify Recovery and OS Images</h2>
-<div class="outline-text-2" id="text-orgca74df2">
-<p>
-In order to ensure that the files you download were not corrupted
-or tampered with, add the release key to you keychain, as per
-<a href="https://redmine.replicant.us/projects/replicant/wiki/ReleaseKey">this guide</a>. I'm using Replicant 6.0, so I want the key with ID
-<code>5816A24C10757FC4</code>.
-</p>
-<pre class="example">
-# Import the key
-gpg --recv-keys 5816A24C10757FC4
-</pre>
-
-<p>
-Next, download the appropriate recovery image, the OS image, their
-checksum file, and signature files from <a href="https://redmine.replicant.us/projects/replicant/wiki/Images">here</a>. For me they are:
-</p>
-<ul class="org-ul">
-<li><b>replicant-6.0-maguro.zip</b> &#x2013; The OS.</li>
-<li><b>replicant-6.0-maguro.zip.asc</b> &#x2013; The OS signature file.</li>
-<li><b>recovery-maguro.img</b> &#x2013; The recovery.</li>
-<li><b>recovery-maguro.img.asc</b> &#x2013; The recovery signature file.</li>
-<li><b>maguro.sha256</b> &#x2013; The checksum file for the OS and recovery.</li>
-</ul>
-
-<p>
-Verify the recovery and OS signature files. If you do not see
-<code>good signature</code> <b>DO NOT PROCEDE</b>, the files have been tampered
-with. 
-</p>
-<pre class="example">
-# Recovery
-gpg --verify recovery-maguro.img.asc
-gpg --verify replicant-6.0-maguro.zip.asc
-</pre>
-
-<p>
-You next should verify the checksums of the OS and recovery files
-to ensure that they have not been corrupted in transit. In order
-to avoid tedious manual comparison between the output of
-<code>sha256sum</code> and the content of <code>maguro.sha256</code>, I recommend
-using the script below.
-</p>
-<pre class="example">
-
-</pre>
-
-<p>
-If all went well, you're all set to begin flashing the recovery!
-</p>
-</div>
+<h1 class="title">MicroG on a Galaxy Nexus</h1>
+<hr />
+<div id="outline-container-org6ce2dc4" class="outline-2">
+<h2 id="org6ce2dc4">What is LineageOS?</h2>
 </div>
 
-<div id="outline-container-orgb973901" class="outline-2">
-<h2 id="orgb973901">Flash Recovery Image</h2>
-<div class="outline-text-2" id="text-orgb973901">
-<p>
-In order to proceed with flashing the recovery image, you'll need
-to install <code>heimdall</code>, in Arch GNU/Linux it is available in the
-<a href="https://aur.archlinux.org/packages/heimdall/">AUR</a>. 
-</p>
 
-<p>
-In order to prepare to flash the recovery, shut down your phone
-then boot into heimdall mode by holding down the <code>power</code> and
-<code>volume down</code> buttons at the same time until you see green
-<code>START</code>. At this point, plug the phone into your computer and
-run the following command:
-</p>
-<pre class="example">
-sudo heimdall flash --boot /path/to/recovery-maguro.img --recovery /path/to/recovery-maguro.img
-</pre>
-
-<p>
-Upon rebooting your phone you should now find yourself in the
-Replicant Recovery. 
-</p>
-
-<p>
-Next use the recovery to wipe the system, cache, and data
-partitions. This can be done selecting <b>Advanced &gt; Wipe system
-partition</b> and <b>Factory Reset &gt; Wipe data (keep media)</b>
-respectively. You should now be ready to install the operating
-system.
-</p>
+<div id="outline-container-org01431dd" class="outline-2">
+<h2 id="org01431dd">Installation</h2>
 </div>
-</div>
-
-<div id="outline-container-org6cdb8a9" class="outline-2">
-<h2 id="org6cdb8a9">Flash OS</h2>
-<div class="outline-text-2" id="text-org6cdb8a9">
-<p>
-This is where I had a bit of trouble. All the instructions on
-redmine.replicant.us required an SD card, which the Galaxy Nexus
-19250 does not have; an installed OS, which was wiped after the
-previous step; or straight up did not work. 
-</p>
-
-<p>
-So after a bit of research, one deep dead end, and mild panic
-that I had ruined yet another perfectly good device by being to
-hasty, I found the solution <a href="https://redmine.replicant.us/boards/3/topics/15366">here</a> on Replicant's message
-board. 
-</p>
-
-<p>
-So instead of retrying the rather poor <a href="https://redmine.replicant.us/projects/replicant/wiki/Installation">installation instructions</a> I
-used the ADB, or <a href="https://en.wikipedia.org/wiki/Android_software_development#ADB">Android Debug Bridge</a> to load it. The ADB is this
-cool system for working with Android phones the way God and Dennis
-Ritchie intended, from a command line on a proper computer.
-</p>
-
-<p>
-First, you need to install the ADB. In Arch it can be found in the
-<code>android-tools</code> package.
-</p>
-
-<p>
-To flash, or sideload, the OS plug it into your computer and
-select <b>Apply update &gt; Apply from ADB</b> then run the following ADB
-command:
-</p>
-<pre class="example">
-adb sideload /path/to/replicant-6.0-maguro.zip
-</pre>
-
-<p>
-Your phone will switch to a screen with a wiggly astromech looking
-thing and progress bar. After a few minutes the previous command
-will output <code>Total xfer: 1.00x</code> and your phone will switch back to
-the recovery screen. Now you can factory reset it with <b>Factory
-reset &gt; Full factory reset</b>.
-</p>
-
-<p>
-Unplug your phone and hit <b>Reboot system now</b> in the main menu of
-the recovery. 
-</p>
-
-<p>
-If all went well, you should be booted into Android Replicant!
-</p>
-
-<br>
-<hr>
+<div id="outline-container-org41af930" class="outline-2">
+<h2 id="org41af930">Post Installation</h2>
+<div class="outline-text-2" id="text-org41af930">
+<hr />
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-08-30</p>
-<p class="date">Created: 2019-08-30 Fri 16:04</p>
+<p class="date">Date: 2019-09-22</p>
+<p class="date">Created: 2019-09-22 Sun 15:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
