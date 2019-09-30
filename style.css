@@ -4,7 +4,7 @@ body {
     color: #f7f7f7;
     margin: auto;
     max-width: 800px;
-    /*padding?*/
+    padding: 0.5em;
 }
 h1,h2,h3,h4 {
     color: #cd7f32;
